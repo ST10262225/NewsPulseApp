@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1050175611723",
+    "project_id": "ournewsapp-540cf",
+    "storage_bucket": "ournewsapp-540cf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050175611723:android:25f90284fab7b56fe8fece",
+        "android_client_info": {
+          "package_name": "com.example.newspulse"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACZmOJkQbj7O-EgHWwp2g1LD2aE8RT2hA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

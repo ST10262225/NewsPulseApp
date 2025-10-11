@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainHome"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white">
+
+    <!-- Top Bar: App Title + Search -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/purple_500"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/AppName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="NewsPulse"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"/>
+
+        <ImageView
+            android:id="@+id/ivSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_search"
+            app:tint="@android:color/white"
+            android:contentDescription="Search"/>
+    </LinearLayout>
+
+    <!-- Horizontal Scroll Categories -->
+    <HorizontalScrollView
+        android:id="@+id/categoryScroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topBar"
+        android:scrollbars="none"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <Button
+                android:id="@+id/btnAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All"
+                style="@style/Widget.AppCompat.Button.Colored"/>
+
+            <Button
+                android:id="@+id/btnSports"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sports"
+                android:layout_marginStart="8dp"/>
+
+            <Button
+                android:id="@+id/btnPolitics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Politics"
+                android:layout_marginStart="8dp"/>
+
+            <Button
+                android:id="@+id/btnTechnology"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Technology"
+                android:layout_marginStart="8dp"/>
+
+            <Button
+                android:id="@+id/btnLifestyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lifestyle"
+                android:layout_marginStart="8dp"/>
+
+            <Button
+                android:id="@+id/btnHealth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Health"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <!-- News RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerHeadlines"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/categoryScroll"
+        android:layout_above="@id/bottomNav"
+        android:padding="8dp"
+        android:clipToPadding="false"/>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@color/purple_500">
+
+        <ImageButton
+            android:id="@+id/ivDownloads"
+            android:layout_width="83dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:contentDescription="Downloads"
+            android:scaleType="centerInside"
+            android:src="@android:drawable/stat_sys_download_done"
+            app:tint="@android:color/white" />
+
+        <ImageButton
+            android:id="@+id/ivWeather"
+            android:layout_width="57dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:contentDescription="Weather"
+            android:scaleType="centerInside"
+            android:src="@drawable/weather" />
+
+        <ImageButton
+            android:id="@+id/ivSports"
+            android:layout_width="113dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:contentDescription="Sports"
+            android:scaleType="centerInside"
+            android:src="@drawable/sport" />
+
+        <ImageView
+            android:id="@+id/ivSettings"
+            android:layout_width="36dp"
+            android:layout_height="46dp"
+            android:layout_weight="1"
+            android:contentDescription="Settings"
+            android:scaleType="centerInside"
+            android:src="@drawable/settings" />
+
+        <ImageView
+            android:id="@+id/ivRefresh"
+            android:layout_width="21dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:contentDescription="Refresh"
+            android:scaleType="centerInside"
+            android:src="@android:drawable/ic_popup_sync"
+            app:tint="@android:color/white" />
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="22dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:contentDescription="Home"
+            android:scaleType="centerInside"
+            android:src="@drawable/home"
+            app:tint="@android:color/white" />
+    </LinearLayout>
+
+</RelativeLayout>

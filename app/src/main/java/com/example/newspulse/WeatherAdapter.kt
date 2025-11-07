@@ -17,6 +17,7 @@ class WeatherAdapter(private val weatherList: List<WeatherResponse>) :
         val desc: TextView = itemView.findViewById(R.id.tvDescription)
     }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_weather, parent, false)

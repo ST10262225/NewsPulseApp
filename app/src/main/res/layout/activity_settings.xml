@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:text="@string/settings"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_marginBottom="20dp" />
@@ -31,7 +31,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Dark Mode"
+                android:text="@string/dark_mode"
                 android:textSize="18sp" />
 
             <Switch
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <!-- Notification Switch -->
+        <!-- Notifications Switch -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Notifications"
+                android:text="@string/notifications"
                 android:textSize="18sp" />
 
             <Switch
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <!-- Font Size Option -->
+        <!-- Font Size -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Font Size"
+                android:text="@string/font_size"
                 android:textSize="18sp" />
 
             <Spinner
@@ -83,24 +83,48 @@
                 android:entries="@array/font_sizes" />
         </LinearLayout>
 
-        <!-- About App -->
+        <!-- Language Selection -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:padding="10dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/change_language"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spinnerLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:spinnerMode="dropdown" />
+
+        </LinearLayout>
+
+        <!-- About App Button -->
         <Button
             android:id="@+id/btnAbout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="About App"
+            android:text="@string/about"
             android:layout_marginTop="20dp" />
 
-        <!-- Logout -->
+        <!-- Logout Button -->
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Logout"
+            android:text="@string/logout"
             android:layout_marginTop="10dp"
             android:textColor="@android:color/white"
             android:background="@android:color/holo_red_dark" />
 
     </LinearLayout>
-
 </ScrollView>

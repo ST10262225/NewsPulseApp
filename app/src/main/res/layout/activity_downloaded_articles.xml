@@ -1,72 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:orientation="vertical"
     android:background="@android:color/white">
 
-    <!-- Top bar with back arrow and delete button-->
+    <!-- 🧭 Top Bar -->
     <LinearLayout
-        android:id="@+id/tobBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_alignParentTop="true">
+        android:padding="12dp"
+        android:background="@color/teal"
+        android:gravity="center_vertical">
 
-        <!-- Back arrow-->
-        <ImageButton
-            android:id="@+id/btnBack"
+        <Button
+            android:id="@+id/btnReturnHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/back"
             android:background="@android:color/transparent"
-            android:src="@android:drawable/ic_media_previous"
-            android:contentDescription="Back"/>
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="16sp" />
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Downloads"
-            android:textSize="20sp"
+            android:text="@string/downloaded_articles"
+            android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:gravity="center"/>
-
-        <!-- Delete all downloads-->
-        <ImageButton
-            android:id="@+id/btnDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:src="@android:drawable/ic_menu_delete"
-            android:contentDescription="Delete all"/>
+            android:textSize="18sp"
+            android:gravity="center" />
     </LinearLayout>
 
-    <!--Placeholder content when there are no downloads-->
-    <LinearLayout
+    <!-- 📰 List of downloaded articles -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewDownloaded"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_below="@+id/tobBar">
-
-        <TextView
-            android:id="@+id/noDownloads"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No downloads yet"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingBottom="8dp"/>
-
-        <TextView
-            android:id="@+id/tvExplanation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="You can save articles for offline reading by tapping the download icon on any article."
-            android:textSize="14sp"
-            android:gravity="center"
-            android:padding="12dp"/>
-    </LinearLayout>
-
-</RelativeLayout>
+        android:padding="8dp"
+        android:clipToPadding="false" />
+</LinearLayout>

@@ -1,13 +1,10 @@
 package com.example.newspulse
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,10 +13,13 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.newspulse.data.AppDatabase
+import com.example.newspulse.data.DownloadedArticle
 import com.example.newspulse.data.News
 import com.example.newspulse.network.RetrofitInstance
+import com.example.newspulse.LocaleHelper
 import com.example.newspulse.ui.NewsAdapter
-import com.google.android.gms.common.api.internal.ApiKey
+import com.example.newspulse.utils.Translator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -27,58 +27,80 @@ import kotlinx.coroutines.withContext
 class NewsApi : AppCompatActivity() {
 
     private lateinit var rvNews: RecyclerView
-    private lateinit var spinnerCategory: Spinner
     private lateinit var btnShare: Button
     private lateinit var btnSettings: Button
     private lateinit var newsAdapter: NewsAdapter
     private val newsList = mutableListOf<News>()
+    private var isFetching = false
 
-    private val apiKey = "2cb4da3db72f20e42da820971c14a9c1"
+    private val apiKey = "a1aa53bfb34d80cc0cd23dbe4eb17f94"
+    private var selectedLang: String = "en"
 
+    override fun attachBaseContext(newBase: Context) {
+        val prefs = newBase.getSharedPreferences("SettingsPref", Context.MODE_PRIVATE)
+        val lang = prefs.getString("appLanguage", "en") ?: "en"
+        super.attachBaseContext(LocaleHelper.setLocale(newBase, lang))
+    }
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_news_api)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-
-
-
-        // Initialize views
         rvNews = findViewById(R.id.rvNews)
-        spinnerCategory = findViewById(R.id.spinnerCategory)
         btnShare = findViewById(R.id.btnShare)
         btnSettings = findViewById(R.id.btnSettings)
 
-        // Setup categories spinner
-        val categories = arrayOf("All", "Technology", "Sports", "Politics")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories)
-        spinnerCategory.adapter = adapter
+        selectedLang = getSharedPreferences("SettingsPref", MODE_PRIVATE)
+            .getString("appLanguage", "en") ?: "en"
 
-        // RecyclerView setup
-        newsAdapter = NewsAdapter(newsList)
+        // ✅ Setup RecyclerView
+        newsAdapter = NewsAdapter(newsList) { article ->
+            lifecycleScope.launch(Dispatchers.IO) {
+                try {
+                    // Use applicationContext to avoid crashes
+                    val db = AppDatabase.getInstance(applicationContext)
+
+                    val safeArticle = DownloadedArticle(
+                        title = article.title ?: "Untitled",
+                        description = article.description ?: "No description available",
+                        imageUrl = article.imageUrl ?: "",
+                        content = "",
+                        language = selectedLang
+                    )
+
+                    db.downloadedArticleDao().insert(safeArticle)
+
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(
+                            this@NewsApi,
+                            "✅ Downloaded: ${safeArticle.title} (${selectedLang.uppercase()})",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(
+                            this@NewsApi,
+                            "⚠️ Download failed: ${e.message}",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }
+        }
+
         rvNews.layoutManager = LinearLayoutManager(this)
         rvNews.adapter = newsAdapter
 
-        // Initial news fetch (South Africa)
-        fetchNews()  // fetch all news (ZA default)
-
-        spinnerCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                val category = if (categories[position] == "All") null else categories[position].lowercase()
-                fetchNews(category)  // only pass the category
-            }
-            override fun onNothingSelected(parent: AdapterView<*>) { }
-        }
-
-
-        // Share button click
+        // Share button
         btnShare.setOnClickListener {
             val shareIntent = Intent(Intent.ACTION_SEND)
             shareIntent.type = "text/plain"
@@ -86,40 +108,69 @@ class NewsApi : AppCompatActivity() {
             startActivity(Intent.createChooser(shareIntent, "Share via"))
         }
 
-        // Settings button click
+        // Settings button
         btnSettings.setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
+
+        fetchNews()
     }
 
-    private fun fetchNews(category: String? = null) {
+    private fun fetchNews() {
+        if (isFetching) return
+        isFetching = true
+
         lifecycleScope.launch {
             try {
+                kotlinx.coroutines.delay(1500L)
+
                 val response = withContext(Dispatchers.IO) {
                     RetrofitInstance.api.getNews(
                         apiKey = apiKey,
-                        categories = category
+                        countries = "za",
+                        languages = "en",
+                        categories = null
                     )
                 }
 
-                if (response.isSuccessful) {
-                    val items = response.body()?.data?.map {
-                        News(
-                            title = it.title ?: "No title",
-                            description = it.description ?: "No description",
-                            imageUrl = it.image ?: null
+                if (response.isSuccessful && response.body()?.data != null) {
+                    val items = response.body()?.data?.map { article ->
+                        val translatedTitle = withContext(Dispatchers.IO) {
+                            Translator.translateText(article.title ?: "", selectedLang)
+                        }
+                        val translatedDesc = withContext(Dispatchers.IO) {
+                            Translator.translateText(article.description ?: "", selectedLang)
+                        }
 
+                        News(
+                            title = translatedTitle,
+                            description = translatedDesc,
+                            imageUrl = article.image ?: ""
                         )
                     } ?: emptyList()
 
                     newsAdapter.updateNews(items)
+
+                    if (items.isEmpty()) {
+                        Toast.makeText(this@NewsApi, "No articles found", Toast.LENGTH_SHORT).show()
+                    }
+                } else if (response.code() == 401) {
+                    Toast.makeText(this@NewsApi, "Unauthorized — check API key", Toast.LENGTH_LONG).show()
+                } else if (response.code() == 429) {
+                    Toast.makeText(this@NewsApi, "Too many requests, wait a bit", Toast.LENGTH_LONG).show()
                 } else {
-                    Toast.makeText(this@NewsApi, "Error: ${response.code()} ${response.message()}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        this@NewsApi,
+                        "Error: ${response.code()} ${response.message()}",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
 
             } catch (e: Exception) {
                 e.printStackTrace()
                 Toast.makeText(this@NewsApi, "Exception: ${e.message}", Toast.LENGTH_LONG).show()
+            } finally {
+                isFetching = false
             }
         }
     }

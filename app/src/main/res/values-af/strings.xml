@@ -1,0 +1,95 @@
+<resources>
+    <string name="app_name">NewsPulse</string>
+
+    <!-- Navigasie / UI -->
+    <string name="downloads">Aflaaie</string>
+    <string name="delete_all">Verwyder alles</string>
+    <string name="no_downloads">Geen aflaaie beskikbaar nie</string>
+    <string name="settings">Instellings</string>
+    <string name="share">Deel</string>
+    <string name="change_language">Verander taal</string>
+    <string name="back">Terug</string>
+    <string name="logout">Teken uit</string>
+    <string name="about">Oor Toepassing</string>
+    <string name="dark_mode">Donker modus</string>
+    <string name="notifications">Kennisgewings</string>
+    <string name="font_size">Lettergrootte</string>
+    <string name="downloaded_articles">Aflaaide artikels</string>
+    <string name="search_hint">Soek nuus...</string>
+    <string name="weather_heading">Weeropdaterings</string>
+    <string name="app_name_text">NewsApp</string>
+    <string name="version_text">Weergawe 1.0</string>
+    <string name="developer_info_text">Ontwikkel deur: B. Morokane, T. Phamela, M. Ngubane</string>
+    <string name="app_description_text">
+        NewsApp is ontwerp om jou die nuutste nuus, opdaterings en sporthoogtepunte van verskeie bronne op een plek te bring.
+        Bly ingelig, enige tyd en oral!
+    </string>
+
+    <!-- Nuwe Vertaal-knoppie -->
+    <string name="translate">Vertaal</string>
+
+    <!-- Kennisgewings / Toasts -->
+    <string name="notifications_enabled">Kennisgewings aangeskakel</string>
+    <string name="notifications_disabled">Kennisgewings afgeskakel</string>
+    <string name="subscribed_news">Ingeskryf vir nuusopdaterings</string>
+    <string name="article_downloaded">Artikel afgelaai</string>
+    <string name="article_deleted">Artikel verwyder</string>
+    <string name="no_articles_found">Geen artikels gevind nie</string>
+    <string name="too_many_requests">Te veel versoeke — wag asseblief n bietjie.</string>
+    <string name="login_failed">Aanmelding het misluk</string>
+    <string name="enter_email_password">Voer jou e-pos en wagwoord in</string>
+    <string name="enter_all_fields">Vul asseblief alle velde in</string>
+    <string name="passwords_not_match">Wagwoorde stem nie ooreen nie</string>
+    <string name="account_registered">Rekening suksesvol geregistreer!</string>
+    <string name="invalid_email">Ongeldige e-posadres</string>
+    <string name="password_too_short">Wagwoord moet minstens 6 karakters hê</string>
+    <string name="failed_save_user_info">Kon nie gebruiker se inligting stoor nie: %1$s</string>
+    <string name="registration_failed">Registrasie het misluk: %1$s</string>
+    <string name="email_hint">E-pos</string>
+    <string name="password_hint">Wagwoord</string>
+    <string name="login">Teken in</string>
+    <string name="register">Registreer</string>
+    <string name="dont_have_account">Het jy nie n rekening nie? Registreer hier</string>
+    <string name="create_account">Skep n rekening</string>
+    <string name="full_name">Volle naam</string>
+    <string name="confirm_password">Bevestig wagwoord</string>
+    <string name="already_have_account">Het u reeds n rekening? Teken in</string>
+    <string name="logged_out">Aangemeld af suksesvol</string>
+
+    <!-- Terugval -->
+    <string name="no_title">Geen titel beskikbaar nie</string>
+    <string name="no_description">Geen beskrywing beskikbaar nie</string>
+    <string name="error_prefix">Fout:</string>
+    <string name="exception_prefix">Uitsondering:</string>
+
+    <!-- Firebase / Google -->
+    <string name="default_web_client_id">
+        539823745213-cn6qei0i63q2hd3t69l60kcnfth1lgmg.apps.googleusercontent.com
+    </string>
+
+    <!-- Skikkings -->
+    <string-array name="font_sizes">
+        <item>Klein</item>
+        <item>Medium</item>
+        <item>Groot</item>
+    </string-array>
+
+    <!-- 🌍 Language Arrays -->
+    <string-array name="language_names">
+        <item>Engels</item>
+        <item>Frans</item>
+        <item>isiZulu</item>
+        <item>Spaans</item>
+        <item>Portugees</item>
+        <item>Afrikaans</item>
+    </string-array>
+
+    <string-array name="language_codes">
+        <item>en</item>
+        <item>fr</item>
+        <item>zu</item>
+        <item>es</item>
+        <item>pt</item>
+        <item>af</item>
+    </string-array>
+</resources>

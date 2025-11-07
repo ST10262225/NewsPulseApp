@@ -2,8 +2,8 @@ package com.example.newspulse.data
 
 // class for news
 data class News(
-    val title: String,
-    val description: String,
+    var title: String,
+    var description: String,
     val imageUrl: String? = null
 
 )

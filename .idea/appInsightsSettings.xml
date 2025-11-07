@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.newspulse" />
-                  <option name="mobileSdkAppId" value="1:1050175611723:android:25f90284fab7b56fe8fece" />
-                  <option name="projectId" value="ournewsapp-540cf" />
-                  <option name="projectNumber" value="1050175611723" />
+                  <option name="mobileSdkAppId" value="1:539823745213:android:fe4cb083705ca6e6b46fd4" />
+                  <option name="projectId" value="newspulse-e11d0" />
+                  <option name="projectNumber" value="539823745213" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

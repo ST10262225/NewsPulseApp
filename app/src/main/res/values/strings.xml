@@ -1,8 +1,90 @@
 <resources>
     <string name="app_name">NewsPulse</string>
+
+    <!-- Navigation / UI -->
+    <string name="downloads">Downloads</string>
+    <string name="delete_all">Delete All</string>
+    <string name="no_downloads">No Downloads</string>
+    <string name="settings">Settings</string>
+    <string name="share">Share</string>
+    <string name="change_language">Change Language</string>
+    <string name="back">Back</string>
+    <string name="logout">Logout</string>
+    <string name="about">About App</string>
+    <string name="search_hint">Search news...</string>
+    <string name="weather_heading">Weather Updates</string>
+    <string name="app_name_text">NewsApp</string>
+    <string name="version_text">Version 1.0</string>
+    <string name="developer_info_text">Developed by: B.Morokane, T.Phamela, M.Ngubane</string>
+    <string name="app_description_text">NewsApp is designed to bring you the latest news, updates, and sports headlines from multiple sources in one place. Stay informed on the go!</string>
+
+    <!-- Settings Screen -->
+    <string name="dark_mode">Dark Mode</string>
+    <string name="notifications">Notifications</string>
+    <string name="font_size">Font Size</string>
+    <string name="downloaded_articles">Downloaded Articles</string>
+    <string name="translate">Translate</string>
+
+    <!-- Login / Register Strings -->
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="dont_have_account">Do not have an account? Register here</string>
+    <string name="enter_all_fields">Please fill all fields</string>
+    <string name="passwords_not_match">Passwords do not match</string>
+    <string name="invalid_email">Invalid email address</string>
+    <string name="password_too_short">Password must be at least 6 characters</string>
+    <string name="account_registered">Account registered successfully!</string>
+    <string name="failed_save_user_info">Failed to save user info: %1$s</string>
+    <string name="registration_failed">Registration failed: %1$s</string>
+    <string name="login_failed">Login failed</string>
+    <string name="enter_email_password">Enter email and password</string>
+    <string name="create_account">Create Account</string>
+    <string name="full_name">Full Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="already_have_account">Already have an account? Login</string>
+    <string name="logged_out">Logged out successfully</string>
+
+    <!-- Notifications / Toasts -->
+    <string name="notifications_enabled">Notifications Enabled</string>
+    <string name="notifications_disabled">Notifications Disabled</string>
+    <string name="subscribed_news">Subscribed to news updates</string>
+    <string name="article_downloaded">Article downloaded</string>
+    <string name="article_deleted">Article deleted</string>
+    <string name="no_articles_found">No articles found</string>
+    <string name="too_many_requests">Too many requests — wait a bit.</string>
+
+    <!-- Fallbacks -->
+    <string name="no_title">No title</string>
+    <string name="no_description">No description</string>
+    <string name="error_prefix">Error:</string>
+    <string name="exception_prefix">Exception:</string>
+
+    <!-- Firebase / Google -->
+    <string name="default_web_client_id">539823745213-cn6qei0i63q2hd3t69l60kcnfth1lgmg.apps.googleusercontent.com</string>
+
+    <!-- Arrays -->
     <string-array name="font_sizes">
         <item>Small</item>
         <item>Medium</item>
         <item>Large</item>
+    </string-array>
+
+    <!-- 🌍 Language Arrays -->
+    <string-array name="language_names">
+        <item>English</item>
+        <item>Français</item>
+        <item>Español</item>
+        <item>Português</item>
+        <item>Afrikaans</item>
+    </string-array>
+
+    <string-array name="language_codes">
+        <item>en</item>
+        <item>fr</item>
+        <item>es</item>
+        <item>pt</item>
+        <item>af</item>
     </string-array>
 </resources>

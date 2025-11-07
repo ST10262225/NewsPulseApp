@@ -2,9 +2,8 @@ package com.example.newspulse
 
 import android.os.Bundle
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 
-class AboutActivity : AppCompatActivity() {
+class AboutActivity : BaseActivity() {  // ✅ Extend BaseActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

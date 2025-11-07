@@ -1,0 +1,95 @@
+<resources>
+    <string name="app_name">NewsPulse</string>
+
+    <!-- Navegación / Interfaz de usuario -->
+    <string name="downloads">Descargas</string>
+    <string name="delete_all">Eliminar todo</string>
+    <string name="no_downloads">Sin descargas</string>
+    <string name="settings">Configuración</string>
+    <string name="share">Compartir</string>
+    <string name="change_language">Cambiar idioma</string>
+    <string name="back">Atrás</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="about">Acerca de</string>
+    <string name="dark_mode">Modo oscuro</string>
+    <string name="notifications">Notificaciones</string>
+    <string name="font_size">Tamaño de fuente</string>
+    <string name="downloaded_articles">Artículos descargados</string>
+    <string name="search_hint">Buscar noticias...</string>
+    <string name="weather_heading">Actualizaciones del clima</string>
+    <string name="app_name_text">NewsApp</string>
+    <string name="version_text">Versión 1.0</string>
+    <string name="developer_info_text">Desarrollado por: B. Morokane, T. Phamela, M. Ngubane</string>
+    <string name="app_description_text">
+        NewsApp está diseñado para traerte las últimas noticias, actualizaciones y titulares deportivos de múltiples fuentes en un solo lugar.
+        ¡Mantente informado en cualquier momento y lugar!
+    </string>
+
+    <!-- Nuevo botón de traducción -->
+    <string name="translate">Traducir</string>
+
+    <!-- Notificaciones / Mensajes -->
+    <string name="notifications_enabled">Notificaciones activadas</string>
+    <string name="notifications_disabled">Notificaciones desactivadas</string>
+    <string name="subscribed_news">Suscrito a las actualizaciones de noticias</string>
+    <string name="article_downloaded">Artículo descargado</string>
+    <string name="article_deleted">Artículo eliminado</string>
+    <string name="no_articles_found">No se encontraron artículos</string>
+    <string name="too_many_requests">Demasiadas solicitudes — espera un momento.</string>
+    <string name="login_failed">Error al iniciar sesión</string>
+    <string name="enter_email_password">Ingrese correo electrónico y contraseña</string>
+    <string name="enter_all_fields">Por favor complete todos los campos</string>
+    <string name="passwords_not_match">Las contraseñas no coinciden</string>
+    <string name="account_registered">¡Cuenta registrada con éxito!</string>
+    <string name="invalid_email">Correo electrónico no válido</string>
+    <string name="password_too_short">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="failed_save_user_info">No se pudo guardar la información del usuario: %1$s</string>
+    <string name="registration_failed">Registro fallido: %1$s</string>
+    <string name="email_hint">Correo electrónico</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="register">Registrarse</string>
+    <string name="dont_have_account">¿No tienes una cuenta? Regístrate aquí</string>
+    <string name="create_account">Crear cuenta</string>
+    <string name="full_name">Nombre completo</string>
+    <string name="confirm_password">Confirmar contraseña</string>
+    <string name="already_have_account">¿Ya tienes una cuenta? Iniciar sesión</string>
+    <string name="logged_out">Cierre de sesión exitoso</string>
+
+    <!-- Mensajes predeterminados -->
+    <string name="no_title">Sin título</string>
+    <string name="no_description">Sin descripción</string>
+    <string name="error_prefix">Error:</string>
+    <string name="exception_prefix">Excepción:</string>
+
+    <!-- Firebase / Google -->
+    <string name="default_web_client_id">
+        539823745213-cn6qei0i63q2hd3t69l60kcnfth1lgmg.apps.googleusercontent.com
+    </string>
+
+    <!-- Arreglos -->
+    <string-array name="font_sizes">
+        <item>Pequeño</item>
+        <item>Mediano</item>
+        <item>Grande</item>
+    </string-array>
+
+    <!-- 🌍 Language Arrays -->
+    <string-array name="language_names">
+        <item>Inglés</item>
+        <item>Francés</item>
+        <item>isiZulu</item>
+        <item>Español</item>
+        <item>Portugués</item>
+        <item>Afrikaans</item>
+    </string-array>
+
+    <string-array name="language_codes">
+        <item>en</item>
+        <item>fr</item>
+        <item>zu</item>
+        <item>es</item>
+        <item>pt</item>
+        <item>af</item>
+    </string-array>
+</resources>
